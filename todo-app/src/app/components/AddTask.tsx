@@ -22,7 +22,11 @@ const AddTask = () =>{
     }
     
     return <>
-        <button onClick={() => setModalOpen(true)} className="btn btn-primary w-full">Add new task <AiOutlinePlus className="ml-2" size={18} /></button>
+        <button 
+        onClick={() => setModalOpen(true)} 
+        className="btn btn-primary w-full">
+            Add new task <AiOutlinePlus className="ml-2" size={18} />
+        </button>
         <Modal modalOpen={modalOpen} setModalOpen={setModalOpen}>
             <form onSubmit={handleSubmitNewTodo}>
                 <h3 className="font-bold text-lg">Add new task</h3>
@@ -32,7 +36,7 @@ const AddTask = () =>{
                         // onChange={(e) = setNewTaskValue (e.target.value)}
                         type="text" 
                         placeholder="Type here" 
-                        className="input input-bordered w-full w-full" 
+                        className="input input-bordered w-full" 
                     />
                     <button type="submit" className="btn">Submit</button>
                 </div>
