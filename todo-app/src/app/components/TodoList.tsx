@@ -16,9 +16,9 @@ const TodoList: React.FC<TodoListProps> = ( {tasks}) =>{
         </tr>
       </thead>
       <tbody>
-        {tasks.map((task) => (
+      {/* {tasks.map((task) => (
             <Task key={task.id} task={task}/>
-        ))}
+        // ))} REVISAAAAAR DA FALLO*/} 
         
       </tbody>
     </table>
