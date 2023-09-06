@@ -10,6 +10,7 @@
     "json-server": "json-server --watch data/todos.json --port 3003"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^4.40.1",
     "@types/node": "20.5.9",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",

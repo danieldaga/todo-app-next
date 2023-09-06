@@ -59,7 +59,7 @@ return(
                     <h3 className="text-lg">Are you sure, you want to delete this task?</h3>
                     <div className="modal-action">
                         <button onClick={() => handleDeleteTask(task.id)}
-                        className='btn bg-red-300 text-black'>
+                        className='btn'>
                             Yes
                         </button>
                     </div>
