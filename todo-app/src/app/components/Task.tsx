@@ -23,14 +23,14 @@ async (e) => {
         id: task.id,
         text: taskToEdit
     })
-    setTaskToEdit("")
+    // setTaskToEdit("")
     setOpenModalEdit(false)
     router.refresh();
 }
 
 const handleDeleteTask = async (id: string) => {
     await deletedTodo(id)
-    setOpenModalDeleted(true)
+    setOpenModalDeleted(false)
     router.refresh();
 }
 
@@ -44,8 +44,8 @@ return(
                         <h3 className="font-bold text-lg">Edit task</h3>
                         <div className="modal-action">
                             <input
-                                // value={taskToEdit}
-                                // onChange={(e) = setTaskToEdit (e.target.value)}
+                                value={taskToEdit}
+                                onChange={(e) => setTaskToEdit (e.target.value)}
                                 type="text" 
                                 placeholder="Type here" 
                                 className="input input-bordered w-full" 

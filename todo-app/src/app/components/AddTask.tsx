@@ -35,8 +35,8 @@ const AddTask = () =>{
                 <h3 className="font-bold text-lg">Add new task</h3>
                 <div className="modal-action">
                     <input
-                        // value={newTaskValue}
-                        // onChange={(e) = setNewTaskValue (e.target.value)}
+                        value={newTaskValue}
+                        onChange={(e) => setNewTaskValue (e.target.value)}
                         type="text" 
                         placeholder="Type here" 
                         className="input input-bordered w-full" 
