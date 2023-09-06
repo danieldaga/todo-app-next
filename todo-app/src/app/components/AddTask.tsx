@@ -1,24 +1,27 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { FormEventHandler, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { addTodo } from "../../../api";
 import Modal from "./Modal";
+import { v4 as uuidv4 } from 'uuid';
 
 const AddTask = () =>{
     const [modalOpen, setModalOpen] = useState<boolean>(false)
     const [newTaskValue, setNewTaskValue] = useState<string>("")
 
+    const router = useRouter()
     const handleSubmitNewTodo: FormEventHandler<HTMLFormElement> = 
     async (e) => {
         e.preventDefault()
         await addTodo({
-            id:"3",
+            id: uuidv4(),
             text: newTaskValue
         })
         setNewTaskValue("")
         setModalOpen(false)
-        
+        router.refresh();
     }
     
     return <>
