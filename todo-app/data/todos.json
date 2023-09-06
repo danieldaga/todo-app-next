@@ -1,40 +1,8 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "text": "buy milk with some orange"
-    },
-    {
       "id": "2",
       "text": "buy milk with some orange"
-    },
-    {
-      "id": "3",
-      "text": ""
-    },
-    {
-      "id": "aabcceea-cee6-4f56-94df-859cfa92fdaa",
-      "text": ""
-    },
-    {
-      "id": "fbaa2041-4ace-405f-9469-74d97a15adee",
-      "text": ""
-    },
-    {
-      "id": "7daaea1c-befe-4b86-8c04-51e46fc93d4d",
-      "text": ""
-    },
-    {
-      "id": "32764bfe-53ff-4de4-91af-939a537e37a0",
-      "text": ""
-    },
-    {
-      "id": "f637c76a-08ef-43c2-8486-bfb15933b30d",
-      "text": ""
-    },
-    {
-      "id": "99928977-b3d3-4d1b-b91d-a4854c8f6a97",
-      "text": ""
     }
   ]
 }
