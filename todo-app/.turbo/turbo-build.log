@@ -1,0 +1,19 @@
+
+> todo-app@0.1.0 build
+> next build
+
+- info Creating an optimized production build...
+
+[35m🌼 daisyUI 3.6.5[0m [0mhttps://daisyui.com
+╰╮
+ ╰─ [32m✔︎[0m [2m[ [0m2[2m ][0m themes are enabled. You can add more themes or make your own theme:
+      https://daisyui.com/docs/themes
+
+[32m    ❤︎ Support daisyUI[0m: https://opencollective.com/daisyui[0m
+
+- info Compiled successfully
+- info Linting and checking validity of types...
+Failed to compile.
+
+Type error: Option 'module' must be set to 'Node16' when option 'moduleResolution' is set to 'Node16'.
+
