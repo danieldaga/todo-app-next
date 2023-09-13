@@ -1,8 +1,12 @@
 {
   "tasks": [
     {
-      "id": "322a2674-1eab-4020-be06-70969b14a1ed",
-      "text": "nueva tarea"
+      "id": "b3ec8fcd-36cc-4e63-a5ed-a2666791c084",
+      "text": "buscar posibles end point en figma parte back"
+    },
+    {
+      "id": "8d02407d-744a-4bf0-a1a2-416c22aa87bf",
+      "text": "preguntar dudas turbo"
     }
   ]
 }
