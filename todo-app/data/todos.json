@@ -1,12 +1,20 @@
 {
   "tasks": [
     {
-      "id": "b3ec8fcd-36cc-4e63-a5ed-a2666791c084",
-      "text": "buscar posibles end point en figma parte back"
+      "id": "e4fee99c-b515-4a86-bad6-65aa6101a9f2",
+      "text": "Create interface model TS"
     },
     {
-      "id": "8d02407d-744a-4bf0-a1a2-416c22aa87bf",
-      "text": "preguntar dudas turbo"
+      "id": "cf431b5e-4576-4a5b-8f92-d25654046a6f",
+      "text": "Validate interface model with Zod"
+    },
+    {
+      "id": "69376f8e-1492-4301-85a5-fc29a29f0dd8",
+      "text": "Linking firebase and using collections to make sure the interface works"
+    },
+    {
+      "id": "b7356889-49c4-4a71-adce-0a46530c3e2d",
+      "text": "Studying the relationship between an Office object and an OfficeDTO"
     }
   ]
 }
