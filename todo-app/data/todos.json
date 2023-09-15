@@ -1,10 +1,6 @@
 {
   "tasks": [
     {
-      "id": "e4fee99c-b515-4a86-bad6-65aa6101a9f2",
-      "text": "Create interface model TS"
-    },
-    {
       "id": "cf431b5e-4576-4a5b-8f92-d25654046a6f",
       "text": "Validate interface model with Zod"
     },
