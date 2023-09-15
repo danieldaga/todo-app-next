@@ -6,6 +6,7 @@ import { FormEventHandler, useState } from "react"
 import Modal from "./Modal"
 import { useRouter } from "next/navigation";
 import { deletedTodo, editTodo } from "../../../api";
+import { deleteTask, updateTask } from "../../../firebase/models/task";
 
 interface TaskProps {
     task: ITask
@@ -16,6 +17,7 @@ const Task: React.FC<TaskProps> = ({task}) =>{
 const [openModalEdit, setOpenModalEdit] = useState<boolean>(false)
 const [openModalDeleted, setOpenModalDeleted] = useState<boolean>(false)
 const [taskToEdit, setTaskToEdit] = useState<string>(task.text)
+
 const handleSubmitEditTodo: FormEventHandler<HTMLFormElement> = 
 async (e) => {
     e.preventDefault()
@@ -30,6 +32,7 @@ async (e) => {
 
 const handleDeleteTask = async (id: string) => {
     await deletedTodo(id)
+    deleteTask(id)
     setOpenModalDeleted(false)
     router.refresh();
 }

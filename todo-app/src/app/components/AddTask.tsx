@@ -11,6 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
 import { deleteDocument, fusuma, updateDocument } from "../../../interfaceModel";
+import { newTask } from "../../../firebase/models/task";
 
 const AddTask = () =>{
     const [modalOpen, setModalOpen] = useState<boolean>(false)
@@ -21,6 +22,10 @@ const AddTask = () =>{
     async (e) => {
         e.preventDefault()
         await addTodo({
+            id: uuidv4(),
+            text: newTaskValue
+        })
+        newTask({
             id: uuidv4(),
             text: newTaskValue
         })
@@ -53,5 +58,4 @@ const AddTask = () =>{
     </>
 };
 
-updateDocument()
 export default AddTask
