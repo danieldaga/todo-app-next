@@ -5,24 +5,20 @@
       "text": "Validate interface model with Zod"
     },
     {
-      "id": "69376f8e-1492-4301-85a5-fc29a29f0dd8",
-      "text": "Linking firebase and using collections to make sure the interface works"
-    },
-    {
       "id": "b7356889-49c4-4a71-adce-0a46530c3e2d",
       "text": "Studying the relationship between an Office object and an OfficeDTO"
-    },
-    {
-      "id": "8068d8e5-f18c-426b-83de-e5039d393a7b",
-      "text": "company, user db,office"
     },
     {
       "id": "edcc512a-d6a9-4241-8691-0ecacb16495b",
       "text": "pnpm look docs"
     },
     {
-      "id": "7c038632-c6bb-4439-9fc6-945d17638e4b",
-      "text": "dudas"
+      "id": "7d49750c-00cd-45d3-b203-64b1f10ae23d",
+      "text": "para el lunes validacion zod si o si"
+    },
+    {
+      "id": "d5479859-e194-4a9c-9fa5-4e8f8cdd4a28",
+      "text": "mirar updateDoc"
     }
   ]
 }

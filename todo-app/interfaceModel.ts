@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { db, firebaseConfig } from "./firebase/firebase";
 import firebase from "firebase/compat/app";
 export interface User {
@@ -34,7 +34,7 @@ export const UserSchema = z.object({
     whatsapp: z.boolean()
 })
 
-const fusuma: User = {
+export const fusuma: User = {
     contactMail: "adrian@fusuma.io",
     contactName: "adrian",
     contactNumber: 666666666,
@@ -50,26 +50,46 @@ const fusuma: User = {
 }
 
 //Funcion para agregar nueva colección a compañia
-const newDocument = () => {
-    const collectionRef = collection(db, "Company");
+export const newDocument = () => {
+    const collectionRef = collection(db, "Company")
 return addDoc(collectionRef, fusuma)
         .then((docRef) => {
-            console.log("Documento agregado con ID: ", docRef.id);
+            console.log("Documento agregado con ID: ", docRef.id)
         })
         .catch((error) => {
-            console.error("Error al agregar el documento: ", error);
+            console.error("Error al agregar el documento: ", error)
         });
 }
 // newDocument() 
 
 //borrar documento de una coleccion
-const deleteDocument = () => {
-    const docRef = firebase.firestore().collection("Company").doc("KC5VzqNAM0GVQ93JxVYL");
-return docRef.delete().then(() => {
-        console.log("Documento eliminado");
-        }).catch((error) => {
-        console.error("Error al eliminar el documento: ", error);
+export const deleteDocument = () => {
+    const documentRef = doc(db, "Company", "Tq0cweGPtrkcQSQnMZOW")
+    return deleteDoc(documentRef)
+    .then(() => {
+        console.log("Documento eliminado")
+    })
+    .catch((error) => {
+        console.error("Error al eliminar el documento: ", error)
+    });
+
+}
+
+//actualizar documento
+
+export const updateDocument = () => {
+    const documentRef = doc(db, "Company", "OZutxHehHq4IFLpsezhg")
+    return updateDoc(documentRef, {
+        contactNumber: 655555555,
+        Name: "fusuma io",
+      })
+        .then(() => {
+          console.log("Document updated successfully");
+        })
+        .catch((error) => {
+          console.error("Error updating document: ", error);
         });
+      
 }
 
 

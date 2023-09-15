@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
-import { User } from "../../../interfaceModel";
+import { deleteDocument, fusuma, updateDocument } from "../../../interfaceModel";
 
 const AddTask = () =>{
     const [modalOpen, setModalOpen] = useState<boolean>(false)
@@ -53,7 +53,5 @@ const AddTask = () =>{
     </>
 };
 
-
-
-
+updateDocument()
 export default AddTask
