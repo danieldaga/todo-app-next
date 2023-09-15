@@ -1,5 +1,6 @@
 import { z } from "zod";
-
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "./firebase/firebase";
 export interface User {
     contactMail: string,
     contactName: string,
@@ -31,5 +32,4 @@ export const UserSchema = z.object({
     web: z.string(),
     whatsapp: z.boolean()
 })
-
 

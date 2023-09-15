@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyDPg0AoSEAJIxdlHuhKwmK1xZDGuVR2268",
   authDomain: "todoapp-537e3.firebaseapp.com",
   projectId: "todoapp-537e3",
@@ -14,6 +15,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const analytics = getAnalytics(app)
 
-const db = getFirestore(app)
+export const db = getFirestore(app)
 
 console.log(db)
