@@ -8,9 +8,6 @@ import Modal from "./Modal";
 import { v4 as uuidv4 } from 'uuid';
 
 
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../../firebase/firebase";
-import { deleteDocument, fusuma, newDocument, updateDocument } from "../../../interfaceModel";
 import { newTask } from "../../../firebase/models/task";
 
 const AddTask = () =>{
@@ -33,7 +30,6 @@ const AddTask = () =>{
         setModalOpen(false)
         router.refresh();
     }
-    
     return <>
         <button 
         onClick={() => setModalOpen(true)} 

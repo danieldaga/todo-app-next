@@ -1,8 +1,6 @@
-import { collection, addDoc, deleteDoc, doc, updateDoc, query, where, getDocs } from "firebase/firestore";
-import { db, firebaseConfig } from "../firebase";
-import { v4 as uuidv4 } from 'uuid';
+import { collection, addDoc, deleteDoc, doc, updateDoc, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
 import { ITask } from "../../types/tasks";
-import { editTodo } from "../../api";
 
 //añadir tarea a firebase
 

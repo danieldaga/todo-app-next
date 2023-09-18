@@ -1,7 +1,6 @@
 import { z } from "zod";
 import { collection, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
-import { db, firebaseConfig } from "./firebase/firebase";
-import firebase from "firebase/compat/app";
+import { db } from "./firebase/firebase";
 export interface User {
     contactMail: string,
     contactName: string,
@@ -22,8 +21,8 @@ export interface User {
 export const UserSchema = z.object({
     contactMail: z.string().email(),
     contactName: z.string(),
-    contactNumber: z.number().max(9),
-    contactNumberWA: z.number().max(9),
+    contactNumber: z.number(),
+    contactNumberWA: z.number(),
     logotype: z.string(),
     mail: z.boolean(),
     Name: z.string(),

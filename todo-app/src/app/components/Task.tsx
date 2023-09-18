@@ -7,7 +7,6 @@ import Modal from "./Modal"
 import { useRouter } from "next/navigation";
 import { deletedTodo, editTodo } from "../../../api";
 import { deleteTask, updateTask } from "../../../firebase/models/task";
-import { updateDocument } from "../../../interfaceModel";
 
 interface TaskProps {
     task: ITask
