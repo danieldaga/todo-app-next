@@ -1,20 +1,8 @@
 {
   "tasks": [
     {
-      "id": "cf431b5e-4576-4a5b-8f92-d25654046a6f",
-      "text": "Validate interface model with Zod"
-    },
-    {
       "id": "b7356889-49c4-4a71-adce-0a46530c3e2d",
       "text": "Studying the relationship between an Office object and an OfficeDTO"
-    },
-    {
-      "id": "edcc512a-d6a9-4241-8691-0ecacb16495b",
-      "text": "pnpm look docs"
-    },
-    {
-      "id": "7d49750c-00cd-45d3-b203-64b1f10ae23d",
-      "text": "para el lunes validacion zod si o si"
     },
     {
       "id": "156c5492-41e0-4dfb-814c-18371acfa9da",
@@ -22,7 +10,11 @@
     },
     {
       "id": "69ee5527-134f-4134-98b7-675330f8ba06",
-      "text": "sdafsdasafasdf"
+      "text": "duda esquemas user y office"
+    },
+    {
+      "id": "48a1f414-bd21-4390-9ea2-4341f7d52e00",
+      "text": "REVISARcompanySchema type CompanyDTO = z.infer<typeof CompanySchema> Marcos Gutierrez Moya4:42 PM createdAt .id updatedAt"
     }
   ]
 }

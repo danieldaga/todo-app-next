@@ -9,6 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 import { newTask } from "../../../firebase/models/task";
+import { deleteDocument, newDocument } from "../../../interfaceModel";
 
 const AddTask = () =>{
     const [modalOpen, setModalOpen] = useState<boolean>(false)

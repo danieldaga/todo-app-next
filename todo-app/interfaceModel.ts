@@ -1,24 +1,25 @@
 import { z } from "zod";
 import { collection, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "./firebase/firebase";
-export interface User {
-    contactMail: string,
-    contactName: string,
-    contactNumber: number,
-    contactNumberWA: number,
-    logotype: HTMLImageElement | string,
-    mail: boolean,
-    Name: string,
-    phone: boolean,
-    slack: boolean,
-    slackId: number,
-    web: string,
-    whatsapp: boolean
-}
-//nullable() and .optional() funciones de zod
+
+// interface
+// export interface Company {
+//     contactMail: string,
+//     contactName: string,
+//     contactNumber: number,
+//     contactNumberWA: number,
+//     logotype: HTMLImageElement | string,
+//     mail: boolean,
+//     Name: string,
+//     phone: boolean,
+//     slack: boolean,
+//     slackId: number,
+//     web: string,
+//     whatsapp: boolean
+// }
 
 
-export const UserSchema = z.object({
+export const CompanySchema = z.object({
     contactMail: z.string().email(),
     contactName: z.string(),
     contactNumber: z.number(),
@@ -29,11 +30,12 @@ export const UserSchema = z.object({
     phone: z.boolean(),
     slack: z.boolean(),
     slackId: z.number(),
-    web: z.string(),
+    web: z.string().url(),
     whatsapp: z.boolean()
 })
+type CompanyDTO = z.infer<typeof CompanySchema>
 
-export const fusuma: User = {
+export const fusuma: CompanyDTO = {
     contactMail: "adrian@fusuma.io",
     contactName: "adrian",
     contactNumber: 555555555,
@@ -44,12 +46,12 @@ export const fusuma: User = {
     phone: true,
     slack: true,
     slackId: 2,
-    web: "fusuma.io",
+    web: "http://fusuma.io",
     whatsapp: true
 }
 //validacion zod
 // try {
-//     const validatedData = UserSchema.parse(fusuma);
+//     const validatedData = CompanySchema.parse(fusuma);
 //     console.log("Datos válidos:", validatedData);
 //   } catch (error) {
 //     console.error("Error de validación:", error);
@@ -60,7 +62,7 @@ export const newDocument = () => {
     return addDoc(collectionRef, fusuma)
     .then((docRef) => {
             try {
-                const validatedData = UserSchema.parse(fusuma);
+                const validatedData = CompanySchema.parse(fusuma);
                 console.log("Datos válidos:", validatedData);
               } catch (error) {
                 console.error("Error de validación:", error);
@@ -71,10 +73,9 @@ export const newDocument = () => {
             console.error("Error al agregar el documento: ", error)
         });
 }
-
 //borrar documento de una coleccion
 export const deleteDocument = () => {
-    const documentRef = doc(db, "Company", "Tq0cweGPtrkcQSQnMZOW")
+    const documentRef = doc(db, "Company", "mpvxP1KD4YBCFylvPNon")
     return deleteDoc(documentRef)
     .then(() => {
         console.log("Documento eliminado")
@@ -85,10 +86,11 @@ export const deleteDocument = () => {
 
 }
 
+
 //actualizar documento
 
 export const updateDocument = () => {
-    const documentRef = doc(db, "Company", "OZutxHehHq4IFLpsezhg")
+    const documentRef = doc(db, "Company", "mpvxP1KD4YBCFylvPNon")
     return updateDoc(documentRef, {
         contactNumber: 655575555,
         Name: "fusuma io",
