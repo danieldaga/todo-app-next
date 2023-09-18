@@ -38,7 +38,7 @@ export const fusuma: User = {
     contactMail: "adrian@fusuma.io",
     contactName: "adrian",
     contactNumber: 666666666,
-    contactNumberWA: 666666666,
+    contactNumberWA: 666656666,
     logotype: "http://icon/fusuma",
     mail: true,
     Name: "Fusuma",
@@ -80,7 +80,7 @@ export const deleteDocument = () => {
 export const updateDocument = () => {
     const documentRef = doc(db, "Company", "OZutxHehHq4IFLpsezhg")
     return updateDoc(documentRef, {
-        contactNumber: 655555555,
+        contactNumber: 655575555,
         Name: "fusuma io",
       })
         .then(() => {
@@ -91,8 +91,6 @@ export const updateDocument = () => {
         });
       
 }
-
-
 
 
 

@@ -1,16 +1,18 @@
-import { collection, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
+import { collection, addDoc, deleteDoc, doc, updateDoc, query, where, getDocs } from "firebase/firestore";
 import { db, firebaseConfig } from "../firebase";
 import { v4 as uuidv4 } from 'uuid';
 import { ITask } from "../../types/tasks";
+import { editTodo } from "../../api";
 
 //añadir tarea a firebase
 
 export const newTask = (todo: ITask) => {
     const collectionRef = collection(db, "todoAPP")
+    console.log(0);
+    
 return addDoc(collectionRef, todo)
-        .then((docRef) => {
+        .then(async (docRef) => {
             console.log("Documento agregado con ID: ", docRef.id)
-
         })
         .catch((error) => {
             console.error("Error al agregar el documento: ", error)
@@ -19,17 +21,27 @@ return addDoc(collectionRef, todo)
 
 //borrar tarea de firebase comprobar
 
-export const deleteTask = (id: string): Promise<void> => {
-    const documentRef = doc(db, "todoAPP", `${id}`)
-    return deleteDoc(documentRef)
-    .then(() => {
-        console.log("Documento eliminado")
-    })
-    .catch((error) => {
-        console.error("Error al eliminar el documento: ", error)
-    });
-
+export const deleteTask = async  (id: string) => {
+    // sacar id de firebase
+    const collectionRef = collection(db, "todoAPP");
+    const searchDoc = await getDocs(collectionRef);
+    searchDoc.forEach((doc) => {
+        if (id===doc.data().id) {
+            console.log('encontrado');
+            const documentoRef = doc(db, "todoAPP", doc.id);
+            deleteDoc(documentoRef)
+            .then(() => {
+                console.log("Documento eliminado correctamente:", doc.id);
+            })
+            .catch((error) => {
+                console.error("Error al eliminar el documento:", error);
+            });
+        }
+        console.log(doc.data().id);
+      });
+      
 }
+
 
 //editar tarea comprobar
 
