@@ -20,10 +20,10 @@ export interface User {
 
 
 export const UserSchema = z.object({
-    contactMail: z.string(),
+    contactMail: z.string().email(),
     contactName: z.string(),
-    contactNumber: z.number(),
-    contactNumberWA: z.number(),
+    contactNumber: z.number().max(9),
+    contactNumberWA: z.number().max(9),
     logotype: z.string(),
     mail: z.boolean(),
     Name: z.string(),
@@ -37,8 +37,8 @@ export const UserSchema = z.object({
 export const fusuma: User = {
     contactMail: "adrian@fusuma.io",
     contactName: "adrian",
-    contactNumber: 666666666,
-    contactNumberWA: 666656666,
+    contactNumber: 555555555,
+    contactNumberWA: 66665666,
     logotype: "http://icon/fusuma",
     mail: true,
     Name: "Fusuma",
@@ -48,19 +48,30 @@ export const fusuma: User = {
     web: "fusuma.io",
     whatsapp: true
 }
-
+//validacion zod
+// try {
+//     const validatedData = UserSchema.parse(fusuma);
+//     console.log("Datos válidos:", validatedData);
+//   } catch (error) {
+//     console.error("Error de validación:", error);
+//   }
 //Funcion para agregar nueva colección a compañia
 export const newDocument = () => {
     const collectionRef = collection(db, "Company")
-return addDoc(collectionRef, fusuma)
-        .then((docRef) => {
+    return addDoc(collectionRef, fusuma)
+    .then((docRef) => {
+            try {
+                const validatedData = UserSchema.parse(fusuma);
+                console.log("Datos válidos:", validatedData);
+              } catch (error) {
+                console.error("Error de validación:", error);
+              }
             console.log("Documento agregado con ID: ", docRef.id)
         })
         .catch((error) => {
             console.error("Error al agregar el documento: ", error)
         });
 }
-// newDocument() 
 
 //borrar documento de una coleccion
 export const deleteDocument = () => {
