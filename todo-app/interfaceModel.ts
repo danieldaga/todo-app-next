@@ -1,7 +1,6 @@
 import { z } from "zod";
-import { collection, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
+import { collection, addDoc, deleteDoc, doc, updateDoc, Firestore } from "firebase/firestore";
 import { db } from "./firebase/firebase";
-
 // interface
 // export interface Company {
 //     contactMail: string,
@@ -31,7 +30,8 @@ export const CompanySchema = z.object({
     slack: z.boolean(),
     slackId: z.number(),
     web: z.string().url(),
-    whatsapp: z.boolean()
+    whatsapp: z.boolean(),
+
 })
 type CompanyDTO = z.infer<typeof CompanySchema>
 
