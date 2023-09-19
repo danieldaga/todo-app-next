@@ -31,24 +31,26 @@ export const CompanySchema = z.object({
     slackId: z.number(),
     web: z.string().url(),
     whatsapp: z.boolean(),
+    createdAt: z.date(),
 
 })
-type CompanyDTO = z.infer<typeof CompanySchema>
+export type CompanyDTO = z.infer<typeof CompanySchema>
 
-export const fusuma: CompanyDTO = {
-    contactMail: "adrian@fusuma.io",
-    contactName: "adrian",
-    contactNumber: 555555555,
-    contactNumberWA: 66665666,
-    logotype: "http://icon/fusuma",
-    mail: true,
-    Name: "Fusuma",
-    phone: true,
-    slack: true,
-    slackId: 2,
-    web: "http://fusuma.io",
-    whatsapp: true
-}
+// export const fusuma: CompanyDTO = {
+//     contactMail: "adrian@fusuma.io",
+//     contactName: "adrian",
+//     contactNumber: 555555555,
+//     contactNumberWA: 66665666,
+//     logotype: "http://icon/fusuma",
+//     mail: true,
+//     Name: "Fusuma",
+//     phone: true,
+//     slack: true,
+//     slackId: 2,
+//     web: "http://fusuma.io",
+//     whatsapp: true,
+//     createdAt: new Date(),
+// }
 //validacion zod
 // try {
 //     const validatedData = CompanySchema.parse(fusuma);
@@ -57,52 +59,53 @@ export const fusuma: CompanyDTO = {
 //     console.error("Error de validación:", error);
 //   }
 //Funcion para agregar nueva colección a compañia
-export const newDocument = () => {
-    const collectionRef = collection(db, "Company")
-    return addDoc(collectionRef, fusuma)
-    .then((docRef) => {
-            try {
-                const validatedData = CompanySchema.parse(fusuma);
-                console.log("Datos válidos:", validatedData);
-              } catch (error) {
-                console.error("Error de validación:", error);
-              }
-            console.log("Documento agregado con ID: ", docRef.id)
-        })
-        .catch((error) => {
-            console.error("Error al agregar el documento: ", error)
-        });
-}
-//borrar documento de una coleccion
-export const deleteDocument = () => {
-    const documentRef = doc(db, "Company", "mpvxP1KD4YBCFylvPNon")
-    return deleteDoc(documentRef)
-    .then(() => {
-        console.log("Documento eliminado")
-    })
-    .catch((error) => {
-        console.error("Error al eliminar el documento: ", error)
-    });
+// export const newDocument = () => {
+//     const collectionRef = collection(db, "Company")
+//     return addDoc(collectionRef, fusuma)
+//     .then((docRef) => {
+//             try {
+//                 const validatedData = CompanySchema.parse(fusuma);
+//                 console.log("Datos válidos:", validatedData);
+//               } catch (error) {
+//                 console.error("Error de validación:", error);
+//               }
+//             console.log("Documento agregado con ID: ", docRef.id)
+//         })
+//         .catch((error) => {
+//             console.error("Error al agregar el documento: ", error)
+//         });
+// }
+// //borrar documento de una coleccion
+// export const deleteDocument = () => {
+//     const documentRef = doc(db, "Company", "mpvxP1KD4YBCFylvPNon")
+//     return deleteDoc(documentRef)
+//     .then(() => {
+//         console.log("Documento eliminado")
+//     })
+//     .catch((error) => {
+//         console.error("Error al eliminar el documento: ", error)
+//     });
 
-}
+// }
 
 
-//actualizar documento
+// //actualizar documento
 
-export const updateDocument = () => {
-    const documentRef = doc(db, "Company", "mpvxP1KD4YBCFylvPNon")
-    return updateDoc(documentRef, {
-        contactNumber: 655575555,
-        Name: "fusuma io",
-      })
-        .then(() => {
-          console.log("Document updated successfully");
-        })
-        .catch((error) => {
-          console.error("Error updating document: ", error);
-        });
+// export const updateDocument = () => {
+//     const documentRef = doc(db, "Company", "qrMycmyXm1JtZVZzmNrP")
+//     return updateDoc(documentRef, {
+//         contactNumber: 655575555,
+//         Name: "fusuma io",
+//         updateAt: new Date()
+//       })
+//         .then(() => {
+//           console.log("Document updated successfully");
+//         })
+//         .catch((error) => {
+//           console.error("Error updating document: ", error);
+//         });
       
-}
+// }
 
 
 

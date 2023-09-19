@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 import { newTask } from "../../../firebase/models/task";
-import { deleteDocument, newDocument } from "../../../interfaceModel";
+import { deleteDocument, newDocument, updateDocument } from "../../../interfaceModel";
 
 const AddTask = () =>{
     const [modalOpen, setModalOpen] = useState<boolean>(false)
@@ -31,6 +31,7 @@ const AddTask = () =>{
         setModalOpen(false)
         router.refresh();
     }
+    
     return <>
         <button 
         onClick={() => setModalOpen(true)} 
