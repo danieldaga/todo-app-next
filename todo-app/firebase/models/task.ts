@@ -23,19 +23,19 @@ export const deleteTask = async  (id: string) => {
     // sacar id de firebase
     const collectionRef = collection(db, "todoAPP");
     const searchDoc = await getDocs(collectionRef);
-    searchDoc.forEach((doc) => {
-        if (id===doc.data().id) {
+    searchDoc.forEach((d) => {
+        if (id===d.data().id) {
             console.log('encontrado');
-            const documentoRef = doc(db, "todoAPP", doc.id);
+            const documentoRef = doc(db, "todoAPP", d.id);
             deleteDoc(documentoRef)
             .then(() => {
-                console.log("Documento eliminado correctamente:", doc.id);
+                console.log("Documento eliminado correctamente:", d.id);
             })
             .catch((error) => {
                 console.error("Error al eliminar el documento:", error);
             });
         }
-        console.log(doc.data().id);
+        console.log(d.data().id);
       });
       
 }

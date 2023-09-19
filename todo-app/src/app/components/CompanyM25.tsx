@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { FiEdit, FiPlusSquare, FiTrash2 } from "react-icons/fi"
 import { CompanyDTO } from "../../../interfaceModel"
-import { collection, addDoc, deleteDoc, doc, updateDoc, firestore, getDocs, query } from "firebase/firestore";
+import { collection, addDoc, deleteDoc, doc, updateDoc, getDocs, query } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
 import firebase from "firebase/compat/app";
 
@@ -46,15 +46,32 @@ const CompanyM25 = () =>{
     }
 
     //Actualizar documento
-    const handleUpdateDocument = () => {
-        const documentRef = doc(db, "Company", "52UI8XsnB73TbGavNU6b")
-        return updateDoc(documentRef, Company)
-        .then(() => {
-            console.log("Document updated successfully");
-        })
-        .catch((error) => {
-            console.error("Error updating document: ", error);
-        });
+    // const handleUpdateDocument = () => {
+    //     const documentRef = doc(db, "Company", "52UI8XsnB73TbGavNU6b")
+    //     return updateDoc(documentRef, Company)
+    //     .then(() => {
+    //         console.log("Document updated successfully");
+    //     })
+    //     .catch((error) => {
+    //         console.error("Error updating document: ", error);
+    //     });
+    // }
+    const handleUpdateDocument = async () => {
+        const collectionRef = collection(db, "Company");
+
+        const docsQuery = query(collectionRef);
+        const querySnapshot = await getDocs(docsQuery);
+
+        if (!querySnapshot.empty) {
+            querySnapshot.forEach(async (d) => {
+                const docRef = doc(collectionRef, d.id);
+            await updateDoc(docRef, Company);
+            });
+
+            console.log("Documento(s) actualizado(s) exitosamente");
+        } else {
+            console.log("No se encontraron documentos para actualizar");
+        }
     }
     
     //Borrar documento
